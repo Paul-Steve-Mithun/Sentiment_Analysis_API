@@ -6,15 +6,17 @@ from datetime import datetime
 import pandas as pd
 import io
 import math
+import os
+
+#Using env for securing the API Keys
+from dotenv import load_dotenv
+load_dotenv()  
 
 app = FastAPI()
 
-
-
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sentimentanalysisapifrontend.vercel.app"],  
+    allow_origins=["https://sentimentanalysisapifrontend.vercel.app","http://localhost:3000"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -27,8 +29,9 @@ def read_root():
     return {"message": "Welcome to the Sentiment Analysis API! - Paul Steve Mithun B"}
 
 # Authentication dependency
+API_KEY = os.getenv("API_KEY")
 def authenticate(api_key: str):
-    if api_key != "your_api_key":
+    if api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API Key")
     return api_key
 
@@ -39,6 +42,7 @@ class SentimentResponse(BaseModel):
     score: float
     timestamp: str = None 
 
+#RESTFUL API Checkpoint to Analyze a single text
 @app.post("/analyze", response_model=SentimentResponse)
 def analyze_text(text: str, api_key: str = Depends(authenticate)):
     scores = analyzer.polarity_scores(text)
@@ -48,6 +52,7 @@ def analyze_text(text: str, api_key: str = Depends(authenticate)):
         score = 0.0 
     return {"id": 0, "text": text, "sentiment": sentiment, "score": score, "timestamp": None}
 
+#RESTFUL API Checkpoint to Analyze a CSV File
 @app.post("/upload_csv")
 def upload_csv(file: UploadFile = File(...), api_key: str = Depends(authenticate)):
     try:

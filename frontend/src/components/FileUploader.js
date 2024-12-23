@@ -31,7 +31,7 @@ const FileUploader = ({ setAnalysisResults }) => {
 
     try {
       const response = await axios.post(
-        "https://sentimentanalysisapi.vercel.app/upload_csv?api_key=your_api_key",
+        "http://127.0.0.1:8000/upload_csv?api_key=your_api_key",
         formData,
         {
           headers: {
