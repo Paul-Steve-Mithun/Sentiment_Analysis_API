@@ -1,0 +1,129 @@
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 50px;
+  padding: 0;
+  background-color: #f9fafb;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2b6cb0;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #4a5568;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1rem;
+  color: #718096;
+}
+
+
+.file-uploader {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #edf2f7;
+  border: 2px dashed #cbd5e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-uploader:hover {
+  background-color: #e2e8f0;
+  border-color: #a0aec0;
+}
+
+.file-uploader input {
+  display: none;
+}
+
+.file-uploader label {
+  display: block;
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button {
+  background-color: #3182ce;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+
+.chart-container {
+  margin: 40px auto;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+}
+
+
+
+.report-downloader {
+  margin: 20px auto;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 15px 20px;
+  background-color: #3182ce;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-link:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px);
+}
+
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+
