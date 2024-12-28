@@ -21,14 +21,12 @@ const ReportDownloader = ({ results, sentimentChartRef, timeChartRef }) => {
     doc.setFontSize(18);
     doc.text(title, titleX, 20);
 
-    // Add Pie Chart with transparent background
     html2canvas(sentimentChartRef.current, { backgroundColor: null }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const chartWidth = 140;  
       const chartX = (pageWidth - chartWidth) / 2;  
       doc.addImage(imgData, "PNG", chartX, 30, chartWidth, 120); 
 
-      // Add Time Chart with transparent background
       html2canvas(timeChartRef.current, { backgroundColor: null }).then((canvas) => {
         const timeChartImgData = canvas.toDataURL("image/png");
         const timeChartWidth = 140; 

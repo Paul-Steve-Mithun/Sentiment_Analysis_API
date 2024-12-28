@@ -19,9 +19,9 @@ function App() {
       {analysisResults.length > 0 && (
         <>
           <div style={{ display: "flex", justifyContent: "space-around" }}>
-            {/* Pie Chart */}
+
             <SentimentChart results={analysisResults} ref={sentimentChartRef} />
-            {/* Time Chart */}
+
             <SentimentOverTimeChart results={analysisResults} ref={timeChartRef} />
           </div>
           <ReportDownloader
